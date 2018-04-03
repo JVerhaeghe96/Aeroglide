@@ -4,6 +4,10 @@ import be.iesca.aeroglide.domaine.Bundle;
 import be.iesca.aeroglide.usecase.GestionPilotes;
 import be.iesca.aeroglide.usecaseimpl.GestionPilotesImpl;
 
+/**
+ * @author Julien
+ * @version 1
+ */
 public class GestionnaireUseCases implements GestionPilotes{
     private static final GestionnaireUseCases INSTANCE = new GestionnaireUseCases();
     private GestionPilotes gestionPilotes;

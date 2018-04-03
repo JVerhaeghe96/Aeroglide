@@ -5,6 +5,10 @@ import be.iesca.aeroglide.usecase.GestionPilotes;
 import be.iesca.aeroglide.domaine.Pilote;
 import be.iesca.aeroglide.dao.PiloteDao;
 
+/**
+ * @author Julien
+ * @version 1
+ */
 public class GestionPilotesImpl implements GestionPilotes {
     private PiloteDao piloteDao;
 
