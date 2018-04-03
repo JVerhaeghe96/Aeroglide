@@ -1,3 +1,8 @@
+/**
+ * @author Verhaeghe Julien
+ * @version 1.0
+ */
+
 package be.iesca.aeroglide.domaine;
 
 /*
@@ -6,10 +11,7 @@ package be.iesca.aeroglide.domaine;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author Julien
- * @version 1
- */
+
 public class Bundle {	
 	public static final String MESSAGE = "message";
 	public static final String PILOTE = "pilote";
