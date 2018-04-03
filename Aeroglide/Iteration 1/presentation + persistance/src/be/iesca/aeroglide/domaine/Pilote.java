@@ -6,8 +6,6 @@
 package be.iesca.aeroglide.domaine;
 
 public class Pilote {
-	private static int currentId = 1;
-
 	private int idPilote;
 	private String nom;
 	private String prenom;
@@ -21,7 +19,6 @@ public class Pilote {
 	
 	public Pilote(String nom, String prenom, String email, String rue, String numero, String localite, int codePostal,String noGsm, double solde) {
 		super();
-		this.idPilote = currentId;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
@@ -31,12 +28,9 @@ public class Pilote {
 		this.codePostal = codePostal;
 		this.noGsm = noGsm;
 		this.solde = solde;
-
-		currentId++;
 	}
 	
 	public Pilote(Pilote pilote){
-		this.idPilote = currentId;
 		this.nom = pilote.nom;
 		this.prenom = pilote.prenom;
 		this.email = pilote.email;
@@ -46,8 +40,6 @@ public class Pilote {
 		this.codePostal = pilote.codePostal;
 		this.noGsm = pilote.noGsm;
 		this.solde = pilote.solde;
-
-		currentId++;
 	}
 
 	public int getIdPilote() {

@@ -11,6 +11,7 @@ import be.iesca.aeroglide.dao.PiloteDao;
 import be.iesca.aeroglide.domaine.Pilote;
 
 public class PiloteDaoMockImpl implements PiloteDao {
+	private static int currentId=1;
 	private Map<Integer, Pilote> mapPilotes;
 	
 	public PiloteDaoMockImpl(){
@@ -23,7 +24,9 @@ public class PiloteDaoMockImpl implements PiloteDao {
 		try {
 			if (this.mapPilotes.containsKey(pilote.getNom()))
 				return false;
+			pilote.setIdPilote(currentId);
 			this.mapPilotes.put(pilote.getIdPilote(), pilote);
+			currentId++;
 		} catch (Exception ex) {
 			return false;
 		}
