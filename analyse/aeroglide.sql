@@ -17,7 +17,7 @@
 -- Tables Section
 -- _____________ 
 
-create table Pilotes (
+create table Pilote (
      idPilote serial not null,
      nom varchar(20) not null,
      prenom varchar(20) not null,
@@ -36,7 +36,7 @@ create table TypePlaneur (
      coutRemorquage real not null,
      constraint ID_TypePlaneur primary key (planeur));
 
-create table Vols (
+create table Vol (
      noVol serial not null,
      duree numeric not null,
      date date not null,
@@ -49,11 +49,11 @@ create table Vols (
 -- Constraints Section
 -- ___________________ 
 
-alter table Vols add constraint FKeffectuer
+alter table Vol add constraint FKeffectuer
      foreign key (idPilote)
      references Pilotes;
 
-alter table Vols add constraint FKcouter
+alter table Vol add constraint FKcouter
      foreign key (planeur)
      references TypePlaneur;
 
