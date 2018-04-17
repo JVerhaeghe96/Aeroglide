@@ -18,6 +18,9 @@ public class TestNG_GestionPilotesImpl {
 	private GestionPilotesImpl gestionPilotes;
 	private Bundle bundle;
 	
+	/*
+		création du gestionnaire de pilotes et du bundle
+	*/
 	@BeforeClass
 	public void init(){
 		this.gestionPilotes=new GestionPilotesImpl();
@@ -27,8 +30,11 @@ public class TestNG_GestionPilotesImpl {
 	@Test
 	public void testEnregistrerPilote()
 	{
+		//	L'ajout devrait bien se passer
 		Pilote p1=new Pilote("A", "A", "aaertg@gmail.com", "A", "1", "A", 1234, "+32475/12.13.14", 1);
+		//	L'ajout devrait bien se passer
 		Pilote p2=new Pilote("B", "B", "", "B", "2", "B", 4567, "", 2);
+		//	L'ajout devrait être refusé
 		Pilote p3=new Pilote("C", "", "caerty@gmail.com", "C", "3", "C", 7894, "0475/12.13.14",-5);
 		
 		//ajouter pilote dans bundle
@@ -53,9 +59,6 @@ public class TestNG_GestionPilotesImpl {
 		this.gestionPilotes.ajouterPilote(bundle);
 		assertFalse((Boolean)this.bundle.get(Bundle.OPERATION_REUSSIE));
 		this.bundle.vider();
-		
-		
-		
 		
 	}
 	

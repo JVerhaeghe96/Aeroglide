@@ -17,6 +17,9 @@ import be.iesca.aeroglide.domaine.Pilote;
 public class TestNG_PiloteDaoMockImpl {
 	PiloteDao piloteDao;
 	
+	/*
+		obtention de l'objet DAO
+	*/
 	@BeforeClass
 	public void init(){
 		DaoFactory daoFactory=DaoFactory.getInstance();
