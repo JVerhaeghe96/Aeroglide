@@ -30,11 +30,11 @@ public class TestNG_GestionPilotesImpl {
 	@Test
 	public void testEnregistrerPilote()
 	{
-		//	L'ajout devrait bien se passer
+		//	L'ajout devrait bien se passer car aucun champ n'est manquant
 		Pilote p1=new Pilote("A", "A", "aaertg@gmail.com", "A", "1", "A", 1234, "+32475/12.13.14", 1);
-		//	L'ajout devrait bien se passer
+		//	L'ajout devrait bien se passer car le champ email et le champ numéro de GSM ne sont pas obligatoires 
 		Pilote p2=new Pilote("B", "B", "", "B", "2", "B", 4567, "", 2);
-		//	L'ajout devrait être refusé
+		//	L'ajout devrait être refusé car le prénom est manquant
 		Pilote p3=new Pilote("C", "", "caerty@gmail.com", "C", "3", "C", 7894, "0475/12.13.14",-5);
 		
 		//ajouter pilote dans bundle
