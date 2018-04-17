@@ -14,18 +14,26 @@ public class PiloteDaoMockImpl implements PiloteDao {
 	private static int currentId=1;
 	private Map<Integer, Pilote> mapPilotes;
 	
+	/*
+		constructeur
+		TreeMap triée sur l'id des pilotes
+	*/
 	public PiloteDaoMockImpl(){
 		Comparator<Integer> comp = new ComparateurPilotes();
 		this.mapPilotes = new TreeMap<Integer, Pilote>(comp);
 	}
-
+	
 	@Override
 	public boolean ajouterPilote(Pilote pilote) {
 		try {
-			if (this.mapPilotes.containsKey(pilote.getNom()))
+			//	On vérifie si le pilote n'est pas déjà présent
+			if (this.mapPilotes.containsKey(pilote.getIdPilote()))
 				return false;
+			//	Puisqu'il n'est pas présent, on lui donne un id
 			pilote.setIdPilote(currentId);
+			//	Ajout du pilote
 			this.mapPilotes.put(pilote.getIdPilote(), pilote);
+			//	On incrémente l'id
 			currentId++;
 		} catch (Exception ex) {
 			return false;
