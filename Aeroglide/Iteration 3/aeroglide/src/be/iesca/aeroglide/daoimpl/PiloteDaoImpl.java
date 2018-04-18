@@ -99,6 +99,11 @@ public class PiloteDaoImpl implements PiloteDao {
 		
 		return liste;
 	}
+
+	@Override
+	public List<Pilote> listerPilotesSoldeNegatif() {
+		return null;
+	}
 	
 
 }

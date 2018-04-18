@@ -70,10 +70,8 @@ public class GestionPilotesImpl implements GestionPilotes {
 		listePilotes = this.piloteDao.listerPilotes();
 		if (listePilotes==null) {
 			listeOk = false;
-		} else if (listePilotes.isEmpty()){
+		} else if (listePilotes.isEmpty())
 			message = "Liste vide";
-			listeOk = false;
-		}
 		else if (listePilotes.size() == 1)
 			message = "Il y a un pilote";
 		else
@@ -81,5 +79,24 @@ public class GestionPilotesImpl implements GestionPilotes {
 		bundle.put(Bundle.OPERATION_REUSSIE, listeOk);
 		bundle.put(Bundle.MESSAGE, message);
 		bundle.put(Bundle.LISTE, listePilotes);
+	}
+
+	@Override
+	public void listerPilotesSoldeNegatif(Bundle bundle) {
+		boolean listeOk = true;
+		String message = "";
+		List<Pilote> listePilotesSoldeNegatif = null;
+		listePilotesSoldeNegatif = this.piloteDao.listerPilotesSoldeNegatif();
+		if (listePilotesSoldeNegatif==null) {
+			listeOk = false;
+		} else if (listePilotesSoldeNegatif.isEmpty())
+			message = "Liste vide";
+		else if (listePilotesSoldeNegatif.size() == 1)
+			message = "Il y a un pilote";
+		else
+			message = "Il y a " + listePilotesSoldeNegatif.size() + " pilotes";
+		bundle.put(Bundle.OPERATION_REUSSIE, listeOk);
+		bundle.put(Bundle.MESSAGE, message);
+		bundle.put(Bundle.LISTE, listePilotesSoldeNegatif);
 	}
 }

@@ -45,6 +45,13 @@ public class PiloteDaoMockImpl implements PiloteDao {
 		
 		return new ArrayList<>(liste);
 	}
+
+	@Override
+	public List<Pilote> listerPilotesSoldeNegatif() {
+		
+		
+		return null;
+	}
 	
 	private class ComparateurPilotes implements Comparator<String> {
 		@Override
@@ -52,6 +59,5 @@ public class PiloteDaoMockImpl implements PiloteDao {
 			return s1.compareTo(s2);
 		}
 	}
-	
 	
 }

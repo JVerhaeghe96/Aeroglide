@@ -6,7 +6,10 @@
 // test d'intégration
 package be.iesca.aeroglide.test;
 import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
+
+import java.util.List;
 
 import org.testng.annotations.*;
 
@@ -17,6 +20,9 @@ import be.iesca.aeroglide.usecaseimpl.GestionPilotesImpl;
 public class TestNG_GestionPilotesImpl {
 	private GestionPilotesImpl gestionPilotes;
 	private Bundle bundle;
+	private Pilote p1;
+	private Pilote p2;
+	private Pilote p3;
 	
 	/*
 		création du gestionnaire de pilotes et du bundle
@@ -31,11 +37,11 @@ public class TestNG_GestionPilotesImpl {
 	public void testEnregistrerPilote()
 	{
 		//	L'ajout devrait bien se passer car aucun champ n'est manquant
-		Pilote p1=new Pilote("A", "A", "aaertg@gmail.com", "A", "1", "A", 1234, "+32475/12.13.14", 1);
-		//	L'ajout devrait bien se passer car le champ email et le champ numéro de GSM ne sont pas obligatoires 
-		Pilote p2=new Pilote("B", "B", "", "B", "2", "B", 4567, "", 2);
+		this.p1=new Pilote("A", "A", "aaertg@gmail.com", "A", "1", "A", 1234, "+32475/12.13.14", 1);
+		//	L'ajout devrait bien se passer car le champ numéro de GSM ne sont pas obligatoires 
+		this.p2=new Pilote("B", "B", "baeb@gmail.com", "B", "2", "B", 4567, "", 2);
 		//	L'ajout devrait être refusé car le prénom est manquant
-		Pilote p3=new Pilote("C", "", "caerty@gmail.com", "C", "3", "C", 7894, "0475/12.13.14",-5);
+		this.p3=new Pilote("C", "", "caerty@gmail.com", "C", "3", "C", 7894, "0475/12.13.14",-5);
 		
 		//ajouter pilote dans bundle
 		bundle.put(Bundle.PILOTE, p1);
@@ -60,6 +66,24 @@ public class TestNG_GestionPilotesImpl {
 		assertFalse((Boolean)this.bundle.get(Bundle.OPERATION_REUSSIE));
 		this.bundle.vider();
 		
+	}
+	
+	@Test(dependsOnMethods="testEnregistrerPilote")
+	public void testListerPilotes(){
+		this.gestionPilotes.listerPilotes(bundle);
+		
+		assertTrue((Boolean) bundle.get(Bundle.OPERATION_REUSSIE));
+		@SuppressWarnings("unchecked")
+		List<Pilote> liste = (List<Pilote>) bundle.get(Bundle.LISTE);
+		
+		assertTrue(liste.get(0).equals(p1));
+		assertTrue(liste.get(1).equals(p2));
+
+		try{
+			assertTrue(liste.get(2).equals(p2));
+		}catch(IndexOutOfBoundsException e){
+			// Ok, il ne doit pas y avoir de 3ème pilote
+		}
 	}
 	
 	

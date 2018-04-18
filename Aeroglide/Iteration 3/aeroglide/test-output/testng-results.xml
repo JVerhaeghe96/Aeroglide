@@ -2,16 +2,16 @@
 <testng-results skipped="1" failed="1" ignored="0" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="421" started-at="2018-04-18T14:49:51Z" finished-at="2018-04-18T14:49:51Z">
+  <suite name="Default suite" duration-ms="936" started-at="2018-04-18T15:10:57Z" finished-at="2018-04-18T15:10:58Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="421" started-at="2018-04-18T14:49:51Z" finished-at="2018-04-18T14:49:51Z">
-      <class name="be.iesca.aeroglide.test.TestNG_PiloteDaoImpl">
-        <test-method status="PASS" signature="init()[pri:0, instance:be.iesca.aeroglide.test.TestNG_PiloteDaoImpl@4439f31e]" name="init" is-config="true" duration-ms="15" started-at="2018-04-18T16:49:51Z" finished-at="2018-04-18T16:49:51Z">
+    <test name="Default test" duration-ms="936" started-at="2018-04-18T15:10:57Z" finished-at="2018-04-18T15:10:58Z">
+      <class name="be.iesca.aeroglide.test.TestNG_GestionPilotesImpl">
+        <test-method status="PASS" signature="init()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@215be6bb]" name="init" is-config="true" duration-ms="811" started-at="2018-04-18T17:10:57Z" finished-at="2018-04-18T17:10:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="FAIL" signature="testEnregistrerPilote()[pri:0, instance:be.iesca.aeroglide.test.TestNG_PiloteDaoImpl@4439f31e]" name="testEnregistrerPilote" duration-ms="390" started-at="2018-04-18T16:49:51Z" finished-at="2018-04-18T16:49:51Z">
+        <test-method status="FAIL" signature="testEnregistrerPilote()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@215be6bb]" name="testEnregistrerPilote" duration-ms="78" started-at="2018-04-18T17:10:58Z" finished-at="2018-04-18T17:10:58Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [true] but found [false]]]>
@@ -22,7 +22,7 @@
 	at org.testng.Assert.failNotEquals(Assert.java:512)
 	at org.testng.Assert.assertTrue(Assert.java:41)
 	at org.testng.Assert.assertTrue(Assert.java:51)
-	at be.iesca.aeroglide.test.TestNG_PiloteDao.testEnregistrerPilote(TestNG_PiloteDao.java:32)
+	at be.iesca.aeroglide.test.TestNG_GestionPilotesImpl.testEnregistrerPilote(TestNG_GestionPilotesImpl.java:53)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -54,13 +54,13 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEnregistrerPilote -->
-        <test-method status="SKIP" signature="testListerPilotes()[pri:0, instance:be.iesca.aeroglide.test.TestNG_PiloteDaoImpl@4439f31e]" name="testListerPilotes" duration-ms="0" started-at="2018-04-18T16:49:51Z" depends-on-methods="be.iesca.aeroglide.test.TestNG_PiloteDao.testEnregistrerPilote" finished-at="2018-04-18T16:49:51Z">
+        <test-method status="SKIP" signature="testListerPilotes()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@215be6bb]" name="testListerPilotes" duration-ms="0" started-at="2018-04-18T17:10:58Z" depends-on-methods="be.iesca.aeroglide.test.TestNG_GestionPilotesImpl.testEnregistrerPilote" finished-at="2018-04-18T17:10:58Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method TestNG_PiloteDao.testListerPilotes()[pri:0, instance:be.iesca.aeroglide.test.TestNG_PiloteDaoImpl@4439f31e] depends on not successfully finished methods]]>
+              <![CDATA[Method TestNG_GestionPilotesImpl.testListerPilotes()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@215be6bb] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method TestNG_PiloteDao.testListerPilotes()[pri:0, instance:be.iesca.aeroglide.test.TestNG_PiloteDaoImpl@4439f31e] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method TestNG_GestionPilotesImpl.testListerPilotes()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@215be6bb] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -85,7 +85,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testListerPilotes -->
-      </class> <!-- be.iesca.aeroglide.test.TestNG_PiloteDaoImpl -->
+      </class> <!-- be.iesca.aeroglide.test.TestNG_GestionPilotesImpl -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

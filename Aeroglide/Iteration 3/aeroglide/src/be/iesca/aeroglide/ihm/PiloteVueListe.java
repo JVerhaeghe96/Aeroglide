@@ -6,12 +6,10 @@
 package be.iesca.aeroglide.ihm;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 
-import java.util.*;
 import java.util.List;
 
 import be.iesca.aeroglide.domaine.Bundle;
@@ -19,6 +17,7 @@ import be.iesca.aeroglide.domaine.Pilote;
 
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class PiloteVueListe extends JPanel implements ChangeListener{
 	private static final String[] nomsColonnes = { "Nom", "Prénom", "Email",
 			"Rue", "Numéro", "Localité", "Code Postal", "Numéro de GSM", "Solde"};
@@ -29,6 +28,7 @@ public class PiloteVueListe extends JPanel implements ChangeListener{
 		this.setLayout(new BorderLayout());
 
 		this.jtable = new JTable();
+		this.jtable.setEnabled(false);
 		JScrollPane jspTable = new JScrollPane(this.jtable);
 		this.add(jspTable);
 		if (model != null) {

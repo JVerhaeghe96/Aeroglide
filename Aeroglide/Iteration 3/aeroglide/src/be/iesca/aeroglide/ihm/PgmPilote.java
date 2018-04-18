@@ -11,6 +11,7 @@ import be.iesca.aeroglide.controleur.GestionnaireUseCases;
 import be.iesca.aeroglide.domaine.Bundle;
 
 
+@SuppressWarnings("serial")
 public class PgmPilote extends JFrame {
 	private PiloteModel piloteModel;
 	private GestionnaireUseCases gestionnaireUseCases;
@@ -19,6 +20,8 @@ public class PgmPilote extends JFrame {
 	private Action actEnregistrerVol;
 	private Action actListerVols;
 	private Action actListerPilotesCompteNegatif;
+	
+	private JToolBar jtb;
 	
 	public PgmPilote(){
 		super("Aeroglide");
@@ -85,7 +88,7 @@ public class PgmPilote extends JFrame {
 		jmb.add(menuVol);
 		
 		//JtoolBar
-		JToolBar jtb=new JToolBar();
+		jtb=new JToolBar();
 		jtb.add(actEnregistrerPilote);
 		jtb.add(actListerPilotes);
 		jtb.add(actListerPilotesCompteNegatif);
@@ -100,6 +103,8 @@ public class PgmPilote extends JFrame {
 	}
 	
 	public void enregistrerPilote(){
+		majFrame();
+		
 		PiloteVueController jp=new PiloteVueController(piloteModel);
 		this.add(jp);
 		SwingUtilities.updateComponentTreeUI(this);
@@ -112,6 +117,7 @@ public class PgmPilote extends JFrame {
 		this.piloteModel.setBundle(bundle);
 		
 		if((Boolean) bundle.get(Bundle.OPERATION_REUSSIE)){
+			majFrame();
 			PiloteVueListe pvl = new PiloteVueListe(this.piloteModel);
 			this.add(pvl);
 			SwingUtilities.updateComponentTreeUI(this);
@@ -129,8 +135,12 @@ public class PgmPilote extends JFrame {
 	public void listerPilotesCompteNegatif(){
 		
 	}
-
 	
+	private void majFrame(){
+		this.getContentPane().removeAll();
+		this.add(jtb, BorderLayout.NORTH);
+		this.add(new VueMessage(this.piloteModel), BorderLayout.SOUTH);
+	}
 
 	public static void main(String[] args) {
 		PgmPilote frame = new PgmPilote();

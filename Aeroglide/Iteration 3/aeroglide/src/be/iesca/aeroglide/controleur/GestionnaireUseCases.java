@@ -29,4 +29,12 @@ public class GestionnaireUseCases implements GestionPilotes{
 	public void listerPilotes(Bundle bundle) {
 		this.gestionPilotes.listerPilotes(bundle);
 	}
+
+	@Override
+	public void listerPilotesSoldeNegatif(Bundle bundle) {
+		this.gestionPilotes.listerPilotesSoldeNegatif(bundle);
+		
+	}
+	
+	
 }
