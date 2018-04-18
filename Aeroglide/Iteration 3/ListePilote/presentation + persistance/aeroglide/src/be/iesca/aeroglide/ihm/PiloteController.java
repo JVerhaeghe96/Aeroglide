@@ -5,6 +5,6 @@
 
 package be.iesca.aeroglide.ihm;
 
-public class PiloteVue {
+public class PiloteController {
 
 }

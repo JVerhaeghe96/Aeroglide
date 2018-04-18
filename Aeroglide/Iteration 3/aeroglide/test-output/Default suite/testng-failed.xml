@@ -3,12 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="be.iesca.aeroglide.test.TestNG_PiloteDaoMockImpl">
+      <class name="be.iesca.aeroglide.test.TestNG_PiloteDaoImpl">
         <methods>
           <include name="init"/>
+          <include name="testListerPilotes"/>
           <include name="testEnregistrerPilote"/>
         </methods>
-      </class> <!-- be.iesca.aeroglide.test.TestNG_PiloteDaoMockImpl -->
+      </class> <!-- be.iesca.aeroglide.test.TestNG_PiloteDaoImpl -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
