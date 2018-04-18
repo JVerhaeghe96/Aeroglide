@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="633" started-at="2018-04-05T09:20:04Z" finished-at="2018-04-05T09:20:05Z">
+  <suite name="Default suite" duration-ms="624" started-at="2018-04-18T12:22:47Z" finished-at="2018-04-18T12:22:47Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="633" started-at="2018-04-05T09:20:04Z" finished-at="2018-04-05T09:20:05Z">
-      <class name="be.iesca.aeroglide.test.TestNG_GestionPilotesImpl">
-        <test-method status="PASS" signature="init()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@675d3402]" name="init" is-config="true" duration-ms="585" started-at="2018-04-05T11:20:04Z" finished-at="2018-04-05T11:20:05Z">
+    <test name="Default test" duration-ms="624" started-at="2018-04-18T12:22:47Z" finished-at="2018-04-18T12:22:47Z">
+      <class name="be.iesca.aeroglide.test.TestNG_PiloteDaoImpl">
+        <test-method status="PASS" signature="init()[pri:0, instance:be.iesca.aeroglide.test.TestNG_PiloteDaoImpl@4439f31e]" name="init" is-config="true" duration-ms="47" started-at="2018-04-18T14:22:47Z" finished-at="2018-04-18T14:22:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="testEnregistrerPilote()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@675d3402]" name="testEnregistrerPilote" duration-ms="27" started-at="2018-04-05T11:20:05Z" finished-at="2018-04-05T11:20:05Z">
+        <test-method status="PASS" signature="testEnregistrerPilote()[pri:0, instance:be.iesca.aeroglide.test.TestNG_PiloteDaoImpl@4439f31e]" name="testEnregistrerPilote" duration-ms="531" started-at="2018-04-18T14:22:47Z" finished-at="2018-04-18T14:22:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEnregistrerPilote -->
-      </class> <!-- be.iesca.aeroglide.test.TestNG_GestionPilotesImpl -->
+      </class> <!-- be.iesca.aeroglide.test.TestNG_PiloteDaoImpl -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
