@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Tests de la couche de persistance]">
+  <test name="Tests de la couche de persistance(failed)">
+    <classes>
+      <class name="be.iesca.tests.TestNG_Parser">
+        <methods>
+          <include name="testMockPostgres1"/>
+          <include name="testPostgres6"/>
+          <include name="testPostgres1"/>
+          <include name="testMock2"/>
+        </methods>
+      </class> <!-- be.iesca.tests.TestNG_Parser -->
+      <class name="be.iesca.tests.TestNG_BiereDao">
+        <methods>
+          <include name="initialiserListeBieres"/>
+          <include name="viderLaTable"/>
+        </methods>
+      </class> <!-- be.iesca.tests.TestNG_BiereDao -->
+    </classes>
+  </test> <!-- Tests de la couche de persistance(failed) -->
+</suite> <!-- Failed suite [Tests de la couche de persistance] -->

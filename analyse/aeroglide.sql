@@ -51,7 +51,7 @@ create table Vol (
 
 alter table Vol add constraint FKeffectuer
      foreign key (idPilote)
-     references Pilotes;
+     references Pilote;
 
 alter table Vol add constraint FKcouter
      foreign key (planeur)
