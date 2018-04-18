@@ -118,10 +118,25 @@ public class PiloteVueController extends JPanel{
 			bundle.put(Bundle.PILOTE, pilote);
 			this.gestionnaire.ajouterPilote(bundle);
 		}catch(NumberFormatException nfe){
-			bundle.put(Bundle.MESSAGE, "Erreur : nombre attendu sur le champ code postal ou solde");
+			bundle.put(Bundle.MESSAGE, "Veuillez rentrer un nombre dans le champ \"code postal\" / \"solde\"");
 		}
 		
+		if((Boolean) bundle.get(Bundle.OPERATION_REUSSIE))
+			this.viderFormulaire();
+		
 		this.piloteModel.setBundle(bundle);
+	}
+	
+	private void viderFormulaire(){
+		this.jtfNom.setText("");
+		this.jtfPrenom.setText("");
+		this.jtfEmail.setText("");
+		this.jtfRue.setText("");
+		this.jtfNumero.setText("");
+		this.jtfLocalite.setText("");
+		this.jtfCodePostal.setText("");
+		this.jtfNoGsm.setText("");
+		this.jtfSolde.setText("");
 	}
 	
 	

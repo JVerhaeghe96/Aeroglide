@@ -29,9 +29,9 @@ public class GestionPilotesImpl implements GestionPilotes {
             message = "Ajout échoué : le nom du pilote n'a pas été spécifié.";
         }else if(pilote.getPrenom() == null || pilote.getPrenom().isEmpty()){
             message = "Ajout échoué : le prénom du pilote n'a pas été spécifié.";
-        }else if(pilote.getEmail() == null){
+        }else if(pilote.getEmail() == null || pilote.getEmail().isEmpty()){
             message = "Ajout échoué : l'email du pilote n'a pas été spécifiée.";
-        }else if(!pilote.getEmail().isEmpty() && !pilote.getEmail().matches("^[^\\W][a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$")){
+        }else if(!pilote.getEmail().matches("^[^\\W][a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*\\.[a-zA-Z]{2,4}$")){
             message = "Erreur : format de l'email invalide.";
         }else if(pilote.getRue() == null || pilote.getRue().isEmpty()){
             message = "Ajout échoué : la rue du pilote n'a pas été spécifiée.";
@@ -52,7 +52,7 @@ public class GestionPilotesImpl implements GestionPilotes {
             if(ajoutReussi)
                 message = "Ajout effectué avec succès.";
             else
-                message = "Ajout échoué.";
+                message = "Ajout échoué : ce pilote a d�j� �t� enregistr�.";
         }
 
         bundle.put(Bundle.MESSAGE, message);

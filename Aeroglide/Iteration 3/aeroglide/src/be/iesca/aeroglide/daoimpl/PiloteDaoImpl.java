@@ -55,7 +55,7 @@ public class PiloteDaoImpl implements PiloteDao {
 				ajoutReussi = true;
 			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			ajoutReussi = false;
 		} finally {
 			cloturer(null, ps, con);
 		}

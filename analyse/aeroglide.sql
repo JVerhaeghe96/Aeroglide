@@ -21,7 +21,7 @@ create table Pilote (
      idPilote serial not null,
      nom varchar(20) not null,
      prenom varchar(20) not null,
-     email varchar(150),
+     email varchar(150) unique not null,
      rue varchar(20) not null,
      numero varchar(5) not null,
      localite varchar(20) not null,
