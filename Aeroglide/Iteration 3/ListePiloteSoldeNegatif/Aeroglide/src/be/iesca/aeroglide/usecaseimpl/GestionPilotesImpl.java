@@ -48,8 +48,6 @@ public class GestionPilotesImpl implements GestionPilotes {
             message = "Ajout échoué : le numéro de gsm du pilote n'a pas été spécifié.";
         }else if(!pilote.getNoGsm().isEmpty() && !pilote.getNoGsm().matches("^(((\\+|00)\\d\\d)|0)\\d\\d\\d/\\d\\d\\.\\d\\d\\.\\d\\d$")){
             message = "Erreur : format du numéro de gsm invalide.";
-        }else if(pilote.getSolde() <= 0){
-            message = "Ajout échoué : le solde du pilote n'a pas été spécifié.";
         }else{
             ajoutReussi = this.piloteDao.ajouterPilote(pilote);
             if(ajoutReussi)
