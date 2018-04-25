@@ -6,8 +6,8 @@
 // test d'intégration
 package be.iesca.aeroglide.test;
 import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.fail;
 
 import java.util.List;
 
@@ -23,6 +23,8 @@ public class TestNG_GestionPilotesImpl {
 	private Pilote p1;
 	private Pilote p2;
 	private Pilote p3;
+	private Pilote p4;
+	private Pilote p5;
 	
 	/*
 		création du gestionnaire de pilotes et du bundle
@@ -42,6 +44,10 @@ public class TestNG_GestionPilotesImpl {
 		this.p2=new Pilote("B", "B", "baeb@gmail.com", "B", "2", "B", 4567, "", 2);
 		//	L'ajout devrait être refusé car le prénom est manquant
 		this.p3=new Pilote("C", "", "caerty@gmail.com", "C", "3", "C", 7894, "0475/12.13.14",-5);
+		
+		// l'ajout devrait bien se passer car aucun champ n'est manquant
+		this.p4=new Pilote("D", "D", "tyui@gmail.com", "C", "3", "C", 7894, "0475/12.13.14",-5);
+		this.p5=new Pilote("E", "E", "pourt@gmail.com", "C", "3", "C", 7894, "0475/12.13.14",-10);
 		
 		//ajouter pilote dans bundle
 		bundle.put(Bundle.PILOTE, p1);
@@ -66,6 +72,16 @@ public class TestNG_GestionPilotesImpl {
 		assertFalse((Boolean)this.bundle.get(Bundle.OPERATION_REUSSIE));
 		this.bundle.vider();
 		
+		bundle.put(Bundle.PILOTE, p4);
+		this.gestionPilotes.ajouterPilote(bundle);
+		assertTrue((Boolean)this.bundle.get(Bundle.OPERATION_REUSSIE));
+		this.bundle.vider();
+		
+		bundle.put(Bundle.PILOTE, p5);
+		this.gestionPilotes.ajouterPilote(bundle);
+		assertTrue((Boolean)this.bundle.get(Bundle.OPERATION_REUSSIE));
+		this.bundle.vider();
+		
 	}
 	
 	@Test(dependsOnMethods="testEnregistrerPilote")
@@ -76,15 +92,27 @@ public class TestNG_GestionPilotesImpl {
 		@SuppressWarnings("unchecked")
 		List<Pilote> liste = (List<Pilote>) bundle.get(Bundle.LISTE);
 		
-		assertTrue(liste.get(0).equals(p1));
-		assertTrue(liste.get(1).equals(p2));
-
 		try{
-			assertTrue(liste.get(2).equals(p2));
+			assertTrue(liste.get(0).equals(p1));
+			assertTrue(liste.get(1).equals(p2));
+			assertTrue(liste.get(3).equals(p5));
+			assertTrue(liste.get(2).equals(p4));
 		}catch(IndexOutOfBoundsException e){
-			// Ok, il ne doit pas y avoir de 3ème pilote
+			fail("erreur : il doit y avoir 4 pilotes dans la liste");
 		}
 	}
+	
+	@Test(dependsOnMethods="testListerPilotes")
+	public void testListerPilotesSoldeNegatif(){
+		this.gestionPilotes.listerPilotesSoldeNegatif(bundle);
+		assertTrue((Boolean) bundle.get(Bundle.OPERATION_REUSSIE));
+		@SuppressWarnings("unchecked")
+		List<Pilote> liste = (List<Pilote>) bundle.get(Bundle.LISTE);
+		
+		assertTrue(liste.get(0).equals(p5));
+		assertTrue(liste.get(1).equals(p4));
+	}
+	
 	
 	
 }
