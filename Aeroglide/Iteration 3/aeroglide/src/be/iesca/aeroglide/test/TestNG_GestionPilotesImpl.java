@@ -3,7 +3,7 @@
  * @version 1.0
  */
 
-// test d'intégration
+// test d'intï¿½gration
 package be.iesca.aeroglide.test;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertNull;
@@ -25,7 +25,7 @@ public class TestNG_GestionPilotesImpl {
 	private Pilote p3;
 	
 	/*
-		création du gestionnaire de pilotes et du bundle
+		crï¿½ation du gestionnaire de pilotes et du bundle
 	*/
 	@BeforeClass
 	public void init(){
@@ -36,11 +36,12 @@ public class TestNG_GestionPilotesImpl {
 	@Test
 	public void testEnregistrerPilote()
 	{
+		this.bundle.vider();
 		//	L'ajout devrait bien se passer car aucun champ n'est manquant
 		this.p1=new Pilote("A", "A", "aaertg@gmail.com", "A", "1", "A", 1234, "+32475/12.13.14", 1);
-		//	L'ajout devrait bien se passer car le champ numéro de GSM ne sont pas obligatoires 
-		this.p2=new Pilote("B", "B", "baeb@gmail.com", "B", "2", "B", 4567, "", 2);
-		//	L'ajout devrait être refusé car le prénom est manquant
+		//	L'ajout devrait bien se passer car le champ numï¿½ro de GSM ne sont pas obligatoires 
+		this.p2=new Pilote("B", "B", "baeb@gmail.com", "B", "2", "B", 4567, "", -500);
+		//	L'ajout devrait ï¿½tre refusï¿½ car le prï¿½nom est manquant
 		this.p3=new Pilote("C", "", "caerty@gmail.com", "C", "3", "C", 7894, "0475/12.13.14",-5);
 		
 		//ajouter pilote dans bundle
@@ -70,21 +71,60 @@ public class TestNG_GestionPilotesImpl {
 	
 	@Test(dependsOnMethods="testEnregistrerPilote")
 	public void testListerPilotes(){
-		this.gestionPilotes.listerPilotes(bundle);
+		this.bundle.vider();
+		this.gestionPilotes.listerPilotesSoldeNegatif(bundle);
 		
 		assertTrue((Boolean) bundle.get(Bundle.OPERATION_REUSSIE));
 		@SuppressWarnings("unchecked")
 		List<Pilote> liste = (List<Pilote>) bundle.get(Bundle.LISTE);
-		
+
+		assertTrue(liste.get(0).equals(p2));
+
+		try{
+			assertTrue(liste.get(1).equals(p2));
+		}catch(IndexOutOfBoundsException e){
+			// Ok, il ne doit pas y avoir de 3eme pilote
+		}
+	}
+
+	@Test(dependsOnMethods="testEnregistrerPilote")
+	public void testListerPilotesSoldeNegatif(){
+		this.bundle.vider();
+		this.gestionPilotes.listerPilotes(bundle);
+
+		assertTrue((Boolean) bundle.get(Bundle.OPERATION_REUSSIE));
+		@SuppressWarnings("unchecked")
+		List<Pilote> liste = (List<Pilote>) bundle.get(Bundle.LISTE);
+
 		assertTrue(liste.get(0).equals(p1));
 		assertTrue(liste.get(1).equals(p2));
 
 		try{
 			assertTrue(liste.get(2).equals(p2));
 		}catch(IndexOutOfBoundsException e){
-			// Ok, il ne doit pas y avoir de 3ème pilote
+			// Ok, il ne doit pas y avoir de 3eme pilote
 		}
 	}
-	
+
+	@Test(dependsOnMethods = "testListerPilotes")
+	public void testModifierPilotes(){
+		this.bundle.vider();
+		this.p1.setNoGsm("0478/52.32.54");
+		this.p1.setLocalite("Tuiles");
+
+		this.bundle.put(Bundle.PILOTE, this.p1);
+		this.gestionPilotes.modifierPilote(bundle);
+		assertTrue((boolean) this.bundle.get(Bundle.OPERATION_REUSSIE));
+
+		this.bundle.vider();
+		this.p2.setNoGsm("0378/78.12.85");
+		this.p2.setLocalite("Toles");
+
+		this.bundle.put(Bundle.PILOTE, this.p2);
+		this.gestionPilotes.modifierPilote(bundle);
+		assertTrue((boolean) this.bundle.get(Bundle.OPERATION_REUSSIE));
+
+		this.bundle.vider();
+	}
 	
 }

@@ -35,6 +35,11 @@ public class GestionnaireUseCases implements GestionPilotes{
 		this.gestionPilotes.listerPilotesSoldeNegatif(bundle);
 		
 	}
+
+	@Override
+	public void modifierPilote(Bundle bundle) {
+		this.gestionPilotes.modifierPilote(bundle);
+	}
 	
 	
 }

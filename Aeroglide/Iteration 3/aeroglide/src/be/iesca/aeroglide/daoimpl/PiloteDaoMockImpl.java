@@ -5,6 +5,8 @@
 
 package be.iesca.aeroglide.daoimpl;
 import java.util.*;
+import java.util.stream.Collectors;
+
 import be.iesca.aeroglide.dao.PiloteDao;
 import be.iesca.aeroglide.domaine.Pilote;
 
@@ -48,9 +50,23 @@ public class PiloteDaoMockImpl implements PiloteDao {
 
 	@Override
 	public List<Pilote> listerPilotesSoldeNegatif() {
+		Collection<Pilote> liste = this.mapPilotes.values();
+
+		liste = liste.stream().filter(p -> p.getSolde() < 0).sorted().collect(Collectors.toList());
 		
-		
-		return null;
+		return new ArrayList<>(liste);
+	}
+	
+	@Override
+	public boolean modifierPilote(Pilote pilote){
+		try {
+			if (this.mapPilotes.remove(pilote.getEmail()) == null)
+				return false;
+			this.mapPilotes.put(pilote.getNom(),pilote);
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 	
 	private class ComparateurPilotes implements Comparator<String> {

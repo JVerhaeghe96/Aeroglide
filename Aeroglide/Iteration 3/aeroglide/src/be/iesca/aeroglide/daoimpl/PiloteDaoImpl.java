@@ -9,9 +9,12 @@ import java.util.*;
 import be.iesca.aeroglide.dao.PiloteDao;
 import be.iesca.aeroglide.domaine.Pilote;
 
+
 public class PiloteDaoImpl implements PiloteDao {
 	private static final String AJOUT = "INSERT INTO pilote (nom,prenom,email,rue,numero,localite,codePostal,noGsm,solde) VALUES (?,?,?,?,?,?,?,?,?)";
 	private static final String LISTER = "SELECT * FROM pilote ORDER BY nom, prenom";
+	private static final String LISTER_SOLDE_NEGATIF = "SELECT * FROM pilote WHERE solde < 0 ORDER BY solde";
+	private static final String MAJ = "UPDATE pilote SET nom= ?, prenom= ?,rue=?,numero=?,localite=?,codePostal=?,noGsm=?,solde=? where email=?";
 
 	// obligatoire pour pouvoir construire une instance avec newInstance() 
 	public PiloteDaoImpl() {
@@ -89,12 +92,13 @@ public class PiloteDaoImpl implements PiloteDao {
 						rs.getString("nogsm"),
 						rs.getDouble("solde")
 					);
+				pilote.setIdPilote(rs.getInt("idpilote"));
 				liste.add(pilote);
 			}
 		}catch(Exception e){
 			liste = null;
 		}finally{
-			cloturer(null, ps, con);
+			cloturer(rs, ps, con);
 		}
 		
 		return liste;
@@ -102,7 +106,70 @@ public class PiloteDaoImpl implements PiloteDao {
 
 	@Override
 	public List<Pilote> listerPilotesSoldeNegatif() {
-		return null;
+		List<Pilote> liste = new ArrayList<>();
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try{
+			con = DaoFactory.getInstance().getConnexion();
+			ps = con.prepareStatement(LISTER_SOLDE_NEGATIF);
+
+			rs = ps.executeQuery();
+			while(rs.next()){
+				Pilote pilote = new Pilote(
+						rs.getString("nom"),
+						rs.getString("prenom"),
+						rs.getString("email"),
+						rs.getString("rue"),
+						rs.getString("numero"),
+						rs.getString("localite"),
+						rs.getInt("codePostal"),
+						rs.getString("nogsm"),
+						rs.getDouble("solde")
+				);
+				pilote.setIdPilote(rs.getInt("idpilote"));
+				liste.add(pilote);
+			}
+		}catch(Exception e){
+			liste = null;
+		}finally{
+			cloturer(rs, ps, con);
+		}
+
+		return liste;
+	}
+	
+	@Override
+	public boolean modifierPilote(Pilote pilote) {
+		boolean modificationReussie = false;
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		try {
+			con = DaoFactory.getInstance().getConnexion();
+			ps = con.prepareStatement(MAJ);
+			String email = pilote.getEmail().trim();
+			ps.setString(1, pilote.getNom().trim());
+			ps.setString(2, pilote.getPrenom().trim());
+			ps.setString(3, pilote.getRue().trim());
+			ps.setString(4, pilote.getNumero().trim());
+			ps.setString(5, pilote.getLocalite().trim());
+			ps.setLong(6, pilote.getCodePostal());
+			ps.setString(7, pilote.getNoGsm().trim());
+			ps.setDouble(8, pilote.getSolde());
+			ps.setString(9, email);
+	
+			int resultat = ps.executeUpdate();
+			if (resultat == 1) {
+				modificationReussie = true;
+			}
+		} catch (Exception ex) {
+			modificationReussie = false;
+		} finally {
+			cloturer(null, ps, con);
+		}
+		return modificationReussie;
 	}
 	
 

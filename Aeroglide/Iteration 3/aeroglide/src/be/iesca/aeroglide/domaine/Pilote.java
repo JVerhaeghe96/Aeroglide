@@ -5,7 +5,7 @@
 
 package be.iesca.aeroglide.domaine;
 
-public class Pilote {
+public class Pilote implements Comparable<Pilote>{
 	private int idPilote;
 	private String nom;
 	private String prenom;
@@ -185,5 +185,10 @@ public class Pilote {
 			return false;
 		
 		return true;
+	}
+
+	@Override
+	public int compareTo(Pilote o) {
+		return (int)(this.solde-o.getSolde());
 	}
 }
