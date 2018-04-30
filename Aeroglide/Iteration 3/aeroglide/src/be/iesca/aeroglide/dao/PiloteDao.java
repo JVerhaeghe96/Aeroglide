@@ -12,5 +12,6 @@ public interface PiloteDao extends Dao{
 	boolean ajouterPilote(Pilote Pilote);
 	List<Pilote> listerPilotes();
 	List<Pilote> listerPilotesSoldeNegatif();
+	boolean modifierPilote(Pilote pilote);
 	
 }

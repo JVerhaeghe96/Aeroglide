@@ -63,7 +63,7 @@ public class PgmPilote extends JFrame {
 		};
 		
 		Icon iconListerPilotesCompteNegatif=new ImageIcon("images/pilotNegatifList.png");
-		actListerPilotesCompteNegatif=new AbstractAction("Lister pilote compte negatif",iconListerPilotesCompteNegatif){
+		actListerPilotesCompteNegatif=new AbstractAction("Lister pilotes compte negatif",iconListerPilotesCompteNegatif){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				listerPilotesCompteNegatif();			
@@ -112,12 +112,12 @@ public class PgmPilote extends JFrame {
 	
 
 	public void listerPilotes(){
+		majFrame();
 		Bundle bundle = new Bundle();
 		this.gestionnaireUseCases.listerPilotes(bundle);
 		this.piloteModel.setBundle(bundle);
 		
 		if((Boolean) bundle.get(Bundle.OPERATION_REUSSIE)){
-			majFrame();
 			PiloteVueListe pvl = new PiloteVueListe(this.piloteModel);
 			this.add(pvl);
 			SwingUtilities.updateComponentTreeUI(this);
@@ -125,21 +125,31 @@ public class PgmPilote extends JFrame {
 	}
 	
 	public void enregistrerVol(){
-		
+		majFrame();
 	}
 	
 	public void listerVols(){
-		
+		majFrame();
 	}
 	
 	public void listerPilotesCompteNegatif(){
-		
+		majFrame();
+		Bundle bundle = new Bundle();
+		this.gestionnaireUseCases.listerPilotesSoldeNegatif(bundle);
+		this.piloteModel.setBundle(bundle);
+
+		if((Boolean) bundle.get(Bundle.OPERATION_REUSSIE)){
+			PiloteVueListe pvl = new PiloteVueListe(this.piloteModel);
+			this.add(pvl);
+			SwingUtilities.updateComponentTreeUI(this);
+		}
 	}
 	
 	private void majFrame(){
 		this.getContentPane().removeAll();
 		this.add(jtb, BorderLayout.NORTH);
 		this.add(new VueMessage(this.piloteModel), BorderLayout.SOUTH);
+		SwingUtilities.updateComponentTreeUI(this);
 	}
 
 	public static void main(String[] args) {
@@ -147,8 +157,6 @@ public class PgmPilote extends JFrame {
 		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		frame.setSize(1000,500);
 		frame.setVisible( true );
-		
-
 	}
 
 }
