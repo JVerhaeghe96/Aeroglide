@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="tests des use cases">
+ 
+	<test name="tests des use cases">
+		<classes>
+			<class name="be.iesca.tests.TestNG_GestionBieres" />
+			<class name="be.iesca.tests.TestNG_GestionUsers" />
+		</classes>
+	</test>
+ 
+</suite>
