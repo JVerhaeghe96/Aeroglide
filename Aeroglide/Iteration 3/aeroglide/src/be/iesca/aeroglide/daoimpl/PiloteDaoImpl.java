@@ -14,7 +14,7 @@ public class PiloteDaoImpl implements PiloteDao {
 	private static final String AJOUT = "INSERT INTO pilote (nom,prenom,email,rue,numero,localite,codePostal,noGsm,solde) VALUES (?,?,?,?,?,?,?,?,?)";
 	private static final String LISTER = "SELECT * FROM pilote ORDER BY nom, prenom";
 	private static final String LISTER_SOLDE_NEGATIF = "SELECT * FROM pilote WHERE solde < 0 ORDER BY solde";
-	private static final String MAJ = "UPDATE pilote SET nom= ?, prenom= ?,rue=?,numero=?,localite=?,codePostal=?,noGsm=?,solde=? where email=?";
+	private static final String MAJ = "UPDATE pilote SET nom= ?, prenom= ?, email=?, rue=?,numero=?,localite=?,codePostal=?,noGsm=?,solde=? where idPilote=?";
 
 	// obligatoire pour pouvoir construire une instance avec newInstance() 
 	public PiloteDaoImpl() {
@@ -152,13 +152,14 @@ public class PiloteDaoImpl implements PiloteDao {
 			String email = pilote.getEmail().trim();
 			ps.setString(1, pilote.getNom().trim());
 			ps.setString(2, pilote.getPrenom().trim());
-			ps.setString(3, pilote.getRue().trim());
-			ps.setString(4, pilote.getNumero().trim());
-			ps.setString(5, pilote.getLocalite().trim());
-			ps.setLong(6, pilote.getCodePostal());
-			ps.setString(7, pilote.getNoGsm().trim());
-			ps.setDouble(8, pilote.getSolde());
-			ps.setString(9, email);
+			ps.setString(3, email);
+			ps.setString(4, pilote.getRue().trim());
+			ps.setString(5, pilote.getNumero().trim());
+			ps.setString(6, pilote.getLocalite().trim());
+			ps.setLong(7, pilote.getCodePostal());
+			ps.setString(8, pilote.getNoGsm().trim());
+			ps.setDouble(9, pilote.getSolde());
+			ps.setLong(10, pilote.getIdPilote());
 	
 			int resultat = ps.executeUpdate();
 			if (resultat == 1) {
