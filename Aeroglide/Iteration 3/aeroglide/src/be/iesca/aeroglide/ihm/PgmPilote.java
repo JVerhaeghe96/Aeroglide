@@ -15,6 +15,7 @@ import be.iesca.aeroglide.domaine.Bundle;
 public class PgmPilote extends JFrame {
 	private PiloteModel piloteModel;
 	private GestionnaireUseCases gestionnaireUseCases;
+	private PiloteVueListe pvl;
 	private Action actEnregistrerPilote;
 	private Action actListerPilotes;
 	private Action actEnregistrerVol;
@@ -118,8 +119,8 @@ public class PgmPilote extends JFrame {
 		this.piloteModel.setBundle(bundle);
 		
 		if((Boolean) bundle.get(Bundle.OPERATION_REUSSIE)){
-			PiloteVueListe pvl = new PiloteVueListe(this.piloteModel);
-			this.add(pvl);
+			this.pvl = new PiloteVueListe(this.piloteModel);
+			this.add(this.pvl);
 			SwingUtilities.updateComponentTreeUI(this);
 		}
 	}
@@ -139,17 +140,23 @@ public class PgmPilote extends JFrame {
 		this.piloteModel.setBundle(bundle);
 
 		if((Boolean) bundle.get(Bundle.OPERATION_REUSSIE)){
-			PiloteVueListe pvl = new PiloteVueListe(this.piloteModel);
-			this.add(pvl);
+			this.pvl = new PiloteVueListe(this.piloteModel);
+			this.add(this.pvl);
 			SwingUtilities.updateComponentTreeUI(this);
 		}
 	}
 	
 	private void majFrame(){
 		this.getContentPane().removeAll();
+		this.piloteModel.removeChangeListener(this.pvl);
+
 		this.add(jtb, BorderLayout.NORTH);
 		this.add(new VueMessage(this.piloteModel), BorderLayout.SOUTH);
 		SwingUtilities.updateComponentTreeUI(this);
+
+		Bundle bundle = this.piloteModel.getBundle();
+		bundle.put(Bundle.MESSAGE, "");
+		this.piloteModel.setBundle(bundle);
 	}
 
 	public static void main(String[] args) {

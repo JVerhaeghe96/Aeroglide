@@ -11,33 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GestionPilotesImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/usecaseimpl/GestionPilotesImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
-              <caret line="93" column="58" lean-forward="false" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PiloteDaoImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/daoimpl/PiloteDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="129" column="18" lean-forward="true" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
-              <folding>
-                <marker date="1525202233789" expanded="true" signature="322:429" ph="INSERT INTO pilote... " />
-                <marker date="1525202233789" expanded="true" signature="471:512" ph="SELECT * FRO... pilote" />
-                <marker date="1525202233789" expanded="true" signature="568:619" ph="SELECT * FRO... pilote" />
-                <marker date="1525202233789" expanded="true" signature="658:775" ph="UPDATE pilot... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -75,12 +49,12 @@
         <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/usecase/GestionPilotes.java" />
         <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/controleur/GestionnaireUseCases.java" />
         <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PiloteModel.java" />
-        <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PgmPilote.java" />
-        <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PiloteVueListe.java" />
         <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/test/TestNG_PiloteDao.java" />
         <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/usecaseimpl/GestionPilotesImpl.java" />
         <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/test/TestNG_GestionPilotesImpl.java" />
         <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/daoimpl/PiloteDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PiloteVueListe.java" />
+        <option value="$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PgmPilote.java" />
       </list>
     </option>
   </component>
@@ -112,7 +86,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,13 +94,31 @@
               <item name="Aeroglide" type="b2602c69:ProjectViewProjectNode" />
               <item name="Aeroglide" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Aeroglide" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Aeroglide" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Aeroglide" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Aeroglide" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="aeroglide" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Aeroglide" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Aeroglide" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="aeroglide" type="462c0819:PsiDirectoryNode" />
+              <item name="ihm" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -395,7 +387,8 @@
       <workItem from="1524742529296" duration="67000" />
       <workItem from="1525087746371" duration="4122000" />
       <workItem from="1525201688266" duration="608000" />
-      <workItem from="1525761833960" duration="106000" />
+      <workItem from="1525761833960" duration="701000" />
+      <workItem from="1525865556893" duration="814000" />
     </task>
     <servers />
   </component>
@@ -432,7 +425,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50179000" />
+    <option name="totallyTimeSpent" value="51588000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -477,13 +470,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PiloteVueController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="118" column="4" lean-forward="false" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/daoimpl/DaoFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -634,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/daoimpl/DaoFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -669,24 +648,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PgmPilote.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/usecase/GestionPilotes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PiloteModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -701,13 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PiloteVueListe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -735,22 +693,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/usecaseimpl/GestionPilotesImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
+        <state relative-caret-position="0">
           <caret line="93" column="58" lean-forward="false" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.project">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="38" lean-forward="true" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/daoimpl/PiloteDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="129" column="18" lean-forward="true" selection-start-line="129" selection-start-column="18" selection-end-line="129" selection-end-column="18" />
+        <state relative-caret-position="-326">
+          <caret line="71" column="40" lean-forward="true" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
           <folding>
             <marker date="1525202233789" expanded="true" signature="322:429" ph="INSERT INTO pilote... " />
             <marker date="1525202233789" expanded="true" signature="471:512" ph="SELECT * FRO... pilote" />
             <marker date="1525202233789" expanded="true" signature="568:619" ph="SELECT * FRO... pilote" />
             <marker date="1525202233789" expanded="true" signature="658:775" ph="UPDATE pilot... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PgmPilote.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PiloteVueListe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-251">
+          <caret line="75" column="9" lean-forward="true" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/be/iesca/aeroglide/ihm/PiloteModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

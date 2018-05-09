@@ -48,12 +48,12 @@ public class PiloteVueListe extends JPanel implements ChangeListener{
 	}
 
 
-	private void majListe() {
+	private void majListe(){
 		if (model == null)
 			return;
 		Bundle bundle = model.getBundle();
 
-		if ((Boolean) bundle.get(Bundle.OPERATION_REUSSIE)) {
+		if ((Boolean) bundle.get(Bundle.OPERATION_REUSSIE)){
 			@SuppressWarnings("unchecked")
 			List<Pilote> listePilotes = (List<Pilote>) bundle.get(Bundle.LISTE);
 			this.donnees = new String[listePilotes.size()][nomsColonnes.length];
