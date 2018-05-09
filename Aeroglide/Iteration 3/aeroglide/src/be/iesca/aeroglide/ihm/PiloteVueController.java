@@ -14,24 +14,34 @@ import be.iesca.aeroglide.domaine.Pilote;
 
 public class PiloteVueController extends JPanel{
 	private PiloteModel piloteModel;
-	private Bundle bundle = new Bundle();
+	private Bundle bundle;
 	private GestionnaireUseCases gestionnaire;
-	private JTextField jtfNom = new JTextField(20);
-	private JTextField jtfPrenom = new JTextField(20);
-	private JTextField jtfEmail = new JTextField(20);
-	private JTextField jtfRue = new JTextField(20);
-	private JTextField jtfNumero = new JTextField(20);
-	private JTextField jtfLocalite = new JTextField(20);
-	private JTextField jtfCodePostal = new JTextField(20);
-	private JTextField jtfNoGsm = new JTextField(20);
-	private JTextField jtfSolde = new JTextField(20);
-	private JButton jbEnregistrerPilote = new JButton("Enregistrer pilote");
+	private JTextField jtfNom; 
+	private JTextField jtfPrenom; 
+	private JTextField jtfEmail; 
+	private JTextField jtfRue;
+	private JTextField jtfNumero; 
+	private JTextField jtfLocalite;
+	private JTextField jtfCodePostal;
+	private JTextField jtfNoGsm; 
+	private JTextField jtfSolde; 
+	private JButton jbEnregistrerPilote;
 	
 	public PiloteVueController(PiloteModel piloteModel){
 		this.piloteModel=piloteModel;
+		this.bundle = new Bundle();
 		this.gestionnaire = GestionnaireUseCases.getINSTANCE();
+		this.jtfNom = new JTextField(20);
+		this.jtfPrenom = new JTextField(20);
+		this.jtfEmail = new JTextField(20);
+		this.jtfRue = new JTextField(20);
+		this.jtfNumero = new JTextField(20);
+		this.jtfLocalite = new JTextField(20);
+		this.jtfCodePostal = new JTextField(20);
+		this.jtfNoGsm = new JTextField(20);
+		this.jtfSolde = new JTextField(20);
+		this.jbEnregistrerPilote = new JButton("Enregistrer pilote");
 		this.add(creerPanelSaisies(), BorderLayout.NORTH);
-		
 	}
 	
 	private JPanel creerPanelSaisies() {
