@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistance type="MOCK">
+	    <dao>be.iesca.aeroglide.daoimpl.PiloteDaoMockImpl</dao>
+</persistance>
