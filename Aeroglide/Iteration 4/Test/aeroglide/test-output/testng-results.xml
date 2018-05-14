@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="563" started-at="2018-05-14T12:14:32Z" finished-at="2018-05-14T12:14:33Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="563" started-at="2018-05-14T12:14:32Z" finished-at="2018-05-14T12:14:33Z">
+      <class name="be.iesca.aeroglide.test.TestNG_GestionPilotesImpl">
+        <test-method status="PASS" signature="init()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@675d3402]" name="init" is-config="true" duration-ms="485" started-at="2018-05-14T14:14:32Z" finished-at="2018-05-14T14:14:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="testEnregistrerPilote()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@675d3402]" name="testEnregistrerPilote" duration-ms="32" started-at="2018-05-14T14:14:33Z" finished-at="2018-05-14T14:14:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEnregistrerPilote -->
+        <test-method status="PASS" signature="testListerPilotesSoldeNegatif()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@675d3402]" name="testListerPilotesSoldeNegatif" duration-ms="0" started-at="2018-05-14T14:14:33Z" depends-on-methods="be.iesca.aeroglide.test.TestNG_GestionPilotesImpl.testEnregistrerPilote" finished-at="2018-05-14T14:14:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListerPilotesSoldeNegatif -->
+        <test-method status="PASS" signature="testListerPilotes()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@675d3402]" name="testListerPilotes" duration-ms="0" started-at="2018-05-14T14:14:33Z" depends-on-methods="be.iesca.aeroglide.test.TestNG_GestionPilotesImpl.testEnregistrerPilote" finished-at="2018-05-14T14:14:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListerPilotes -->
+        <test-method status="PASS" signature="testModifierPilotes()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@675d3402]" name="testModifierPilotes" duration-ms="15" started-at="2018-05-14T14:14:33Z" depends-on-methods="be.iesca.aeroglide.test.TestNG_GestionPilotesImpl.testListerPilotes" finished-at="2018-05-14T14:14:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testModifierPilotes -->
+        <test-method status="PASS" signature="testEnregistrerVol()[pri:0, instance:be.iesca.aeroglide.test.TestNG_GestionPilotesImpl@675d3402]" name="testEnregistrerVol" duration-ms="16" started-at="2018-05-14T14:14:33Z" depends-on-methods="be.iesca.aeroglide.test.TestNG_GestionPilotesImpl.testModifierPilotes" finished-at="2018-05-14T14:14:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEnregistrerVol -->
+      </class> <!-- be.iesca.aeroglide.test.TestNG_GestionPilotesImpl -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
