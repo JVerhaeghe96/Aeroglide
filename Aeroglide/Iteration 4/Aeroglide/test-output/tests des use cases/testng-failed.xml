@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [tests des use cases]">
+  <test name="tests des use cases(failed)">
+    <classes>
+      <class name="be.iesca.tests.TestNG_GestionUsers">
+        <methods>
+          <include name="initialisation"/>
+        </methods>
+      </class> <!-- be.iesca.tests.TestNG_GestionUsers -->
+      <class name="be.iesca.tests.TestNG_GestionBieres">
+        <methods>
+          <include name="testSupprimer"/>
+          <include name="testRechercher"/>
+          <include name="testListeTriee"/>
+          <include name="testModifier"/>
+          <include name="testLister"/>
+          <include name="terminer"/>
+          <include name="testAjouter"/>
+          <include name="initialiser"/>
+        </methods>
+      </class> <!-- be.iesca.tests.TestNG_GestionBieres -->
+      <class name="be.iesca.tests.TestNG_GestionnaireUseCases">
+        <methods>
+          <include name="testListeBieresUserConnecte"/>
+          <include name="testDeconnexion"/>
+          <include name="testAjouterBiereUserConnecte"/>
+          <include name="testModifierBiere"/>
+          <include name="testAjouterBiere"/>
+          <include name="testListerBieres"/>
+          <include name="testConnexion"/>
+          <include name="testSupprimerBiereUserConnecte"/>
+          <include name="initialiser"/>
+          <include name="terminer"/>
+          <include name="testModifierBiereUserConnecte"/>
+          <include name="testSupprimerBiere"/>
+        </methods>
+      </class> <!-- be.iesca.tests.TestNG_GestionnaireUseCases -->
+    </classes>
+  </test> <!-- tests des use cases(failed) -->
+</suite> <!-- Failed suite [tests des use cases] -->
