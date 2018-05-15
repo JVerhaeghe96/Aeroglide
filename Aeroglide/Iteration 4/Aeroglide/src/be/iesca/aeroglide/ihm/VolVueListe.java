@@ -32,20 +32,25 @@ public class VolVueListe extends JPanel {
         this.add(this.jpSaisie, BorderLayout.NORTH);
 
         this.gestionnaire.listerDates(bundle);
-        listeDate = (List<Date>) bundle.get(Bundle.LISTE);
+        
+        if(!(boolean)bundle.get(Bundle.OPERATION_REUSSIE)){
+        	this.model.setBundle(this.bundle);
+        }else{
+        	listeDate = (List<Date>) bundle.get(Bundle.LISTE);
 
-        Date[] tabDates = new Date[listeDate.size()];
-        for(int i = 0; i < listeDate.size(); i++){
-            tabDates[i] = listeDate.get(i);
+            Date[] tabDates = new Date[listeDate.size()];
+            for(int i = 0; i < listeDate.size(); i++){
+                tabDates[i] = listeDate.get(i);
+            }
+
+            this.jcbDates = new JComboBox<>(tabDates);
+            this.jpSaisie.add(jcbDates);
+
+            this.jbListerVols = new JButton("Rechercher les vols");
+            jbListerVols.addActionListener(e->listerVols());
+
+            this.jpSaisie.add(jbListerVols);
         }
-
-        this.jcbDates = new JComboBox<>(tabDates);
-        this.jpSaisie.add(jcbDates);
-
-        this.jbListerVols = new JButton("Rechercher les vols");
-        jbListerVols.addActionListener(e->listerVols());
-
-        this.jpSaisie.add(jbListerVols);
     }
 
     @SuppressWarnings("unchecked")
