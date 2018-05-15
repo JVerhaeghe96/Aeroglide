@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Tests de la couche de persistance">
+	<test name="Tests de la couche de persistance">
+		<classes>
+			<class name="be.iesca.tests.TestNG_Parser" />
+			<class name="be.iesca.tests.TestNG_BiereDao" />
+			<class name="be.iesca.tests.TestNG_UserDao" />
+		</classes>
+	</test>
+</suite>
