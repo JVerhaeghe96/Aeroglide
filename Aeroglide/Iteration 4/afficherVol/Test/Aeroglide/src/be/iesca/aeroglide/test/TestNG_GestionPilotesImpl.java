@@ -5,12 +5,15 @@
 
 // test d'int�gration
 package be.iesca.aeroglide.test;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertNull;
-import static org.testng.Assert.assertTrue;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
+import be.iesca.aeroglide.domaine.TypePlaneur;
+import be.iesca.aeroglide.domaine.Vol;
 import org.testng.annotations.*;
 
 import be.iesca.aeroglide.controleur.GestionnaireUseCases;
@@ -18,13 +21,19 @@ import be.iesca.aeroglide.domaine.Bundle;
 import be.iesca.aeroglide.domaine.Pilote;
 import be.iesca.aeroglide.usecaseimpl.GestionPilotesImpl;
 
+import static org.testng.Assert.*;
+
 public class TestNG_GestionPilotesImpl {
 	private GestionnaireUseCases gestionnaire;
 	private Bundle bundle;
 	private Pilote p1;
 	private Pilote p2;
 	private Pilote p3;
-	
+	private Vol v1;
+	private Vol v2;
+	private Vol v3;
+	private Vol v4;
+
 	/*
 		cr�ation du gestionnaire de pilotes et du bundle
 	*/
@@ -127,14 +136,72 @@ public class TestNG_GestionPilotesImpl {
 
 		this.bundle.vider();
 	}
-	
+
 	@Test(dependsOnMethods = "testModifierPilotes")
 	public void testEnregistrerVol(){
-		
+		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			java.util.Date dateUtil = sdf.parse("18/05/2018");
+			Date date=new Date(dateUtil.getTime());
+			//type de planneur
+			List<TypePlaneur> liste = new ArrayList<>();
+			liste.add(new TypePlaneur("bois & toile", 17, 25));
+			liste.add(new TypePlaneur("biplace", 30, 25));
+
+			// vol
+			this.v1=new Vol(30,date,15.3,p1,liste.get(0));
+			this.v2=new Vol(35,date,18.3,p2,liste.get(1));
+			this.v3=new Vol(-1,date,20.5,p1,liste.get(0));
+			this.v4=new Vol(45,date,-2,p2,liste.get(1));
+
+			bundle.put(Bundle.VOL,v1);
+			this.gestionnaire.enregistrerVol(bundle);
+			assertTrue((Boolean)this.bundle.get(Bundle.OPERATION_REUSSIE));
+			this.bundle.vider();
+
+
+			bundle.put(Bundle.VOL,v2);
+			this.gestionnaire.enregistrerVol(bundle);
+			assertTrue((Boolean)this.bundle.get(Bundle.OPERATION_REUSSIE));
+			this.bundle.vider();
+
+
+			bundle.put(Bundle.VOL,v3);
+			this.gestionnaire.enregistrerVol(bundle);
+			assertFalse((Boolean)this.bundle.get(Bundle.OPERATION_REUSSIE));
+			this.bundle.vider();
+
+
+			bundle.put(Bundle.VOL,v4);
+			this.gestionnaire.enregistrerVol(bundle);
+			assertFalse((Boolean)this.bundle.get(Bundle.OPERATION_REUSSIE));
+			this.bundle.vider();
+
+		}catch(ParseException e){
+			fail("Il aurait dû accepter de parser la date");
+		}catch(Exception e){
+			fail("Il n'aurait pas dû y avoir d'erreur lors de l'opération.");
+		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test(dependsOnMethods = "testEnregistrerVol")
 	public void testListerVols(){
+		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+		try{
+			java.util.Date dateUtil = sdf.parse("18/05/2018");
+			Date date = new Date(dateUtil.getTime());
+			bundle.vider();
+			bundle.put(Bundle.DATE, date);
+			this.gestionnaire.listerVols(bundle);
+			List<Vol> listeVol = (List<Vol>) bundle.get(Bundle.LISTE);
 
+			assertTrue(listeVol.size() == 2);
+
+			assertTrue(listeVol.get(0).equals(this.v1));
+			assertTrue(listeVol.get(1).equals(this.v2));
+		}catch(Exception e){
+			fail("Il aurait dû accepter de parser la date");
+		}
 	}
 }

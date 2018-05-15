@@ -59,7 +59,6 @@ public abstract class TestNG_VolDao {
 			assertTrue(this.volDao.enregistrerVol(this.v1));
 			assertTrue(this.volDao.enregistrerVol(this.v2));
 		} catch (ParseException e) {
-			e.printStackTrace();
 			fail("il aurait dû accepter de parser la date");
 		}
 	}
@@ -76,12 +75,8 @@ public abstract class TestNG_VolDao {
 
 			assertTrue(listeVol.get(0).equals(this.v1));
 			assertTrue(listeVol.get(1).equals(this.v2));
-
-
 		}catch(Exception e){
-			e.printStackTrace();
 			fail("Il aurait dû accepter de parser la date");
 		}
 	}
-
 }
