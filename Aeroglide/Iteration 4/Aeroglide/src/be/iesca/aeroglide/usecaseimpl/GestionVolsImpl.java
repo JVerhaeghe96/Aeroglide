@@ -88,6 +88,14 @@ public class GestionVolsImpl implements GestionVols {
 	@Override
 	public void listerDates(Bundle bundle) {
 		List<Date> listeDates = this.volDao.listerDates();
-		bundle.put(Bundle.LISTE, listeDates);
+		if(listeDates.size()==0){
+			bundle.put(Bundle.MESSAGE,"Aucun vol n'a été enregistré");
+			bundle.put(Bundle.OPERATION_REUSSIE,false);
+		}
+		else{
+			bundle.put(Bundle.LISTE, listeDates);	
+			bundle.put(Bundle.OPERATION_REUSSIE,true);
+		}
+
 	}
 }
