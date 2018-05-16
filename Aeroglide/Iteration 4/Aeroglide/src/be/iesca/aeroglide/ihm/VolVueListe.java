@@ -7,6 +7,8 @@ import be.iesca.aeroglide.domaine.Vol;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -101,7 +103,7 @@ public class VolVueListe extends JPanel {
                 donnees[i][1] = v.getPilote();
                 donnees[i][2] = v.getPlaneur();
                 donnees[i][3] = v.getDuree();
-                donnees[i][4] = v.getCout();
+                donnees[i][4] = new BigDecimal(v.getCout()).setScale(2, RoundingMode.CEILING);
             }
 
             this.jtable.setModel(new DefaultTableModel(donnees, nomsColonnes){
@@ -111,6 +113,5 @@ public class VolVueListe extends JPanel {
                 }
             });
         }
-
     }
 }

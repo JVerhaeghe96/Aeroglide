@@ -2,9 +2,10 @@ package be.iesca.aeroglide.ihm;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -117,13 +118,18 @@ public class VolVueController extends JPanel{
 			TypePlaneur planeur=listePlaneurs.get(jcbPlaneur.getSelectedIndex());
 
 			double cout = planeur.getCoutRemorquage() + (planeur.getTarifHoraire()/60 * duree);
+			BigDecimal bd = new BigDecimal(cout);
+			bd = bd.setScale(2, RoundingMode.CEILING);
+
+			cout = bd.doubleValue();
 			
 			Vol vol=new Vol(duree, date, cout, pilote, planeur);
 			this.bundle.put(Bundle.VOL, vol);
 			this.gestionnaire.enregistrerVol(bundle);
 			
 		}catch(NumberFormatException nfe){
-			bundle.put(Bundle.MESSAGE, "Veuillez rentrer un nombre dans le champ \"duree\" / \"cout\"");
+			nfe.printStackTrace();
+			bundle.put(Bundle.MESSAGE, "Veuillez rentrer un nombre dans le champ \"duree\"");
 			bundle.put(Bundle.OPERATION_REUSSIE, false);
 		}catch (ParseException e){
 			bundle.put(Bundle.MESSAGE, "Le format de la date n'est pas correct, format attendu: dd/MM/yyyy");
