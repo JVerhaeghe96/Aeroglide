@@ -15,7 +15,7 @@ public class VolDaoImpl implements VolDao{
     private static final String MODIFIER_SOLDE_PILOTE = "UPDATE pilote SET solde=? WHERE idpilote=?";
     private static final String LISTER_PLANEURS = "SELECT * FROM typeplaneur";
     private static final String LISTER_VOLS = "SELECT * FROM vol INNER JOIN pilote ON vol.idpilote = pilote.idpilote INNER JOIN typeplaneur ON typeplaneur.planeur = vol.planeur WHERE vol.date = ? ORDER BY duree DESC";
-    private static final String LISTER_DATES = "SELECT DISTINCT date FROM vol";
+    private static final String LISTER_DATES = "SELECT DISTINCT date FROM vol ORDER BY date DESC";
     
     public VolDaoImpl(){
 
@@ -40,7 +40,7 @@ public class VolDaoImpl implements VolDao{
     }
 
     @Override
-    public boolean enregistrerVol(Vol vol) {
+    public boolean enregistrerVol(Vol vol){
         boolean ajoutReussi = false;
         Connection con = null;
         PreparedStatement ps = null;
@@ -175,6 +175,7 @@ public class VolDaoImpl implements VolDao{
                                         rs.getDouble("tarifhoraire"),
                                         rs.getDouble("coutremorquage"))
 						);
+				vol.getPilote().setIdPilote(rs.getInt("idpilote"));
 				vol.setId(rs.getInt(1));
 				liste.add(vol);
 			}
