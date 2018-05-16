@@ -5,9 +5,9 @@ import javax.xml.bind.Unmarshaller;
 
 public class ParserConfig {
 
-	// Méthode chargée de construire un objet de type Persistance.
+	// MÃ©thode chargÃ©e de construire un objet de type Persistance.
 	// Elle initialise ses attributs avec les valeurs extraites du fichier XML.
-	// Elle reçoit en paramètre le nom du fichier XML de configuration.
+	// Elle reÃ§oit en paramÃ¨tre le nom du fichier XML de configuration.
 	// Elle lance une exception si le fichier de configuration est incorrect.
 	public static Persistance lireConfiguration(String fichierConfiguration) throws Exception {
 		JAXBContext context = JAXBContext.newInstance(Persistance.class);

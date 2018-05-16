@@ -23,15 +23,15 @@ public class GestionVolsImpl implements GestionVols {
     	String message="";
     	boolean reussite=false;
     	if(vol==null){
-    		message="Ajout échoué : aucun vol n'a �t� sp�cifi�";
+    		message="Ajout échoué : aucun vol n'a été spécifié";
     	}else if(vol.getCout()<=0){
-    		message="Ajout échoué : le co�t ne peut pas �tre inf�rieur � 0";
+    		message="Ajout échoué : le coût ne peut pas tre inférieur à 0";
     	}else if(vol.getDuree()<=0){
-    		message="Ajout échoué : la dur�e ne peut pas �tre inf�rieure � 0";
+    		message="Ajout échoué : la durée ne peut pas être inférieure à 0";
     	}else if(vol.getPilote()==null){
-    		message="Ajout échoué : aucun pilote n'a �t� s�lectionn�";
+    		message="Ajout échoué : aucun pilote n'a été sélectionné";
     	}else if(vol.getPlaneur()==null){
-    		message="Ajout échoué : aucun planeur n'a �t� s�lectionn�";
+    		message="Ajout échoué : aucun planeur n'a été sélectionné";
     	}else{
     		double solde=vol.getPilote().getSolde();
     		solde-=vol.getCout();

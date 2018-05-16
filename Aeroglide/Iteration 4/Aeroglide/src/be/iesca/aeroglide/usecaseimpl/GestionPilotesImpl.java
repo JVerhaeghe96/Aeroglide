@@ -32,7 +32,7 @@ public class GestionPilotesImpl implements GestionPilotes {
             if(ajoutReussi)
                 message = "Ajout effectué avec succès.";
             else
-                message = "Ajout échoué : ce pilote a d�j� �t� enregistr�.";
+                message = "Ajout échoué : ce pilote a déjà été enregistré.";
         }else{
             message = "Ajout échoué : "+ bundle.get(Bundle.MESSAGE);
         }

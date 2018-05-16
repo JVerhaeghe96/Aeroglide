@@ -39,19 +39,19 @@ public class DaoFactory {
 		BoneCP connectionPool = null;
 		try {
 			/*
-			 * Création d'une configuration de pool de connexions via l'objet
-			 * BoneCPConfig et les différents setters associés.
+			 * CrÃ©ation d'une configuration de pool de connexions via l'objet
+			 * BoneCPConfig et les diffÃ©rents setters associÃ©s.
 			 */
 			BoneCPConfig config = new BoneCPConfig();
 			/* Mise en place de l'URL, du nom et du mot de passe */
 			config.setJdbcUrl(persistance.getUrl());
 			config.setUsername(persistance.getUser());
 			config.setPassword(persistance.getPassword());
-			/* Paramétrage de la taille du pool */
+			/* ParamÃ©trage de la taille du pool */
 			config.setMinConnectionsPerPartition(5);
 			config.setMaxConnectionsPerPartition(10);
 			config.setPartitionCount(2);
-			/* Création du pool à partir de la configuration, via l'objet BoneCP */
+			/* CrÃ©ation du pool Ã  partir de la configuration, via l'objet BoneCP */
 			connectionPool = new BoneCP(config);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -70,7 +70,7 @@ public class DaoFactory {
 		return connection;
 	}
 
-	// renvoie l'instance du dao dont on spécifie l'interface
+	// renvoie l'instance du dao dont on spÃ©cifie l'interface
 	public Dao getDaoImpl(Class<? extends Dao> interfaceDao) {
 		return this.persistance.getDaoImpl(interfaceDao);
 	}

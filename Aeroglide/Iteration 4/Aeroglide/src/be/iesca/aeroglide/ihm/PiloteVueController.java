@@ -48,7 +48,7 @@ public class PiloteVueController extends JPanel{
 		JPanel jpSaisies = new JPanel(new GridLayout(6, 1));
 		jpSaisies.setPreferredSize(new Dimension(900, 180));
 
-		// saisie nom et prénom
+		// saisie nom et prÃ©nom
 		JPanel jpNomPrenom = new JPanel(new GridLayout(1,2));
 		JPanel jpNom=new JPanel(new BorderLayout());
 		jpNom.add(new JLabel("   Nom   "),BorderLayout.WEST);
