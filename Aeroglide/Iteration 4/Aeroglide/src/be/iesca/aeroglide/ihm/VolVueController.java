@@ -35,38 +35,41 @@ public class VolVueController extends JPanel{
 	
 	@SuppressWarnings("unchecked")
 	public VolVueController(PiloteModel piloteModel){
+		this.piloteModel=piloteModel;
 		this.gestionnaire = GestionnaireUseCases.getINSTANCE();
 		this.bundle=new Bundle();
 		
 		this.gestionnaire.listerPilotes(bundle);
-		this.listePilotes=(List<Pilote>) bundle.get(Bundle.LISTE);
-		Pilote[] pilotes=new Pilote[listePilotes.size()];
-		for(int i=0;i<listePilotes.size();i++){
-			pilotes[i]=listePilotes.get(i);
+
+		if(!(boolean)bundle.get(Bundle.OPERATION_REUSSIE)){
+			bundle.put(Bundle.MESSAGE, "Aucun pilote n'a été enregistré.");
+			this.piloteModel.setBundle(this.bundle);
+		}else{
+			this.listePilotes=(List<Pilote>) bundle.get(Bundle.LISTE);
+			Pilote[] pilotes=new Pilote[listePilotes.size()];
+			for(int i=0;i<listePilotes.size();i++){
+				pilotes[i]=listePilotes.get(i);
+			}
+
+			this.gestionnaire.listerTypePlaneur(bundle);
+			this.listePlaneurs=(List<TypePlaneur>) bundle.get(Bundle.LISTE);
+			TypePlaneur[] planeurs=new TypePlaneur[listePlaneurs.size()];
+			for(int i=0;i<listePlaneurs.size();i++){
+				planeurs[i]=listePlaneurs.get(i);
+			}
+
+
+			this.jtfDuree = new JTextField(20);
+			this.jtfDate = new JTextField(20);
+			this.jtfCout = new JTextField(20);
+			this.jcbPilote = new JComboBox<Pilote>(pilotes);
+			this.jcbPlaneur = new JComboBox<TypePlaneur>(planeurs);
+			this.jbEnregistrerVol = new JButton("Enregistrer vol");
+
+			this.jcbPilote.addActionListener(e-> System.out.println(listePilotes.get(jcbPilote.getSelectedIndex()).getIdPilote()));
+
+			this.add(creerPanelSaisies(), BorderLayout.NORTH);
 		}
-		
-		this.gestionnaire.listerTypePlaneur(bundle);
-		this.listePlaneurs=(List<TypePlaneur>) bundle.get(Bundle.LISTE);
-		TypePlaneur[] planeurs=new TypePlaneur[listePlaneurs.size()];
-		for(int i=0;i<listePlaneurs.size();i++){
-			planeurs[i]=listePlaneurs.get(i);
-		}
-		
-		
-		this.jtfDuree = new JTextField(20);
-		this.jtfDate = new JTextField(20);
-		this.jtfCout = new JTextField(20);
-		this.jcbPilote = new JComboBox<Pilote>(pilotes);
-		this.jcbPlaneur = new JComboBox<TypePlaneur>(planeurs);
-		this.jbEnregistrerVol = new JButton("Enregistrer vol");
-		
-		this.piloteModel=piloteModel;
-		
-		
-		this.jcbPilote.addActionListener(e-> System.out.println(listePilotes.get(jcbPilote.getSelectedIndex()).getIdPilote()));
-		
-		
-		this.add(creerPanelSaisies(), BorderLayout.NORTH);
 	}
 	
 	private JPanel creerPanelSaisies() {

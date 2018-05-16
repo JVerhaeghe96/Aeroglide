@@ -3,7 +3,7 @@
  * @version 1.0
  */
 
-// test d'int�gration
+// test d'intégration
 package be.iesca.aeroglide.test;
 
 import java.sql.Date;
@@ -35,7 +35,7 @@ public class TestNG_GestionPilotesImpl {
 	private Vol v4;
 
 	/*
-		cr�ation du gestionnaire de pilotes et du bundle
+		création du gestionnaire de pilotes et du bundle
 	*/
 	@BeforeClass
 	public void init(){
@@ -49,9 +49,9 @@ public class TestNG_GestionPilotesImpl {
 		this.bundle.vider();
 		//	L'ajout devrait bien se passer car aucun champ n'est manquant
 		this.p1=new Pilote("A", "A", "aaertg@gmail.com", "A", "1", "A", 1234, "+32475/12.13.14", 1);
-		//	L'ajout devrait bien se passer car le champ num�ro de GSM ne sont pas obligatoires 
+		//	L'ajout devrait bien se passer car le champ numéro de GSM ne sont pas obligatoires
 		this.p2=new Pilote("B", "B", "baeb@gmail.com", "B", "2", "B", 4567, "", -500);
-		//	L'ajout devrait �tre refus� car le pr�nom est manquant
+		//	L'ajout devrait être refusé car le prénom est manquant
 		this.p3=new Pilote("C", "", "caerty@gmail.com", "C", "3", "C", 7894, "0475/12.13.14",-5);
 		
 		//ajouter pilote dans bundle

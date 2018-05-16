@@ -21,8 +21,8 @@ import java.awt.*;
 
 @SuppressWarnings("serial")
 public class PiloteVueListe extends JPanel implements ChangeListener{
-	private static final String[] nomsColonnes = {"Id", "Nom", "Pr�nom", "Email",
-			"Rue", "Num�ro", "Localit�", "Code Postal", "Num�ro de GSM", "Solde"};
+	private static final String[] nomsColonnes = {"Id", "Nom", "Prénom", "Email",
+			"Rue", "Numéro", "Localité", "Code Postal", "Numéro de GSM", "Solde"};
 	private Object[][] donnees;
 	private PiloteModel model;
 	private JTable jtable;

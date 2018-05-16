@@ -17,10 +17,10 @@ import be.iesca.aeroglide.dao.Dao;
 
 
 /*
- * Une instance de cette classe encapsule les données caractérisant un système
+ * Une instance de cette classe encapsule les donnÃ©es caractÃ©risant un systÃªme
  * de persistance. Elle sera soit de type MOCK, soit de type DB.
  * Si, elle est de type MOCK, les attributs driver, user, et password ne seront
- * pas utilisés.
+ * pas utilisÃ©s.
  * Le parser assignera aux attributs les valeurs extraites du fichier XML. 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -35,14 +35,14 @@ public class Persistance {
 	@XmlElement(name = "dao")
 	private Set<String> daos = new HashSet<String>(); // ensemble des noms des
 														// classes
-														// d'implémentation des
+														// d'implÃ©mentation des
 														// daos
 
 	private String driver; // nom du driver jdbc
 
-	private String url; // url d'accès à la db
+	private String url; // url d'accÃ¨s Ã  la db
 
-	private String user; // login d'un utilisateur enregistré dans la db
+	private String user; // login d'un utilisateur enregistrÃ© dans la db
 
 	private String password; // mot de passe de cet utilisateur
 
@@ -50,10 +50,10 @@ public class Persistance {
 		super();
 	}
 
-	// Le daoFactory appellera cette méthode afin de charger
-	// le driver jdbc spécifié dans le fichier de configuration
-	// Devenu inutile depuis le jdbc4, car il et chargé automatiquement par le
-	// driver manager. Obligatoire pour les versions précédentes.
+	// Le daoFactory appellera cette mÃ©thode afin de charger
+	// le driver jdbc spÃ©cifiÃ© dans le fichier de configuration
+	// Devenu inutile depuis le jdbc4, car il et chargÃ© automatiquement par le
+	// driver manager. Obligatoire pour les versions prÃ©cÃ©dentes.
 	public void configurer() {
 		if (this.type.equals(DB)) {
 			try {
@@ -64,7 +64,7 @@ public class Persistance {
 		}
 	}
 
-	// renvoie l'instance du dao dont on spécifie l'interface
+	// renvoie l'instance du dao dont on spÃ©cifie l'interface
 	@SuppressWarnings("unchecked")
 	public Dao getDaoImpl(Class<? extends Dao> interfaceDao) {
 		Dao dao = null;
