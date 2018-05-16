@@ -14,7 +14,7 @@ public class VolDaoImpl implements VolDao{
     private static final String AJOUT = "INSERT INTO vol (duree, date, cout, idPilote, planeur) VALUES (?, ?, ?, ?, ?)";
     private static final String MODIFIER_SOLDE_PILOTE = "UPDATE pilote SET solde=? WHERE idpilote=?";
     private static final String LISTER_PLANEURS = "SELECT * FROM typeplaneur";
-    private static final String LISTER_VOLS = "SELECT * FROM vol INNER JOIN pilote ON vol.idpilote = pilote.idpilote INNER JOIN typeplaneur ON typeplaneur.planeur = vol.planeur WHERE vol.date = ?";
+    private static final String LISTER_VOLS = "SELECT * FROM vol INNER JOIN pilote ON vol.idpilote = pilote.idpilote INNER JOIN typeplaneur ON typeplaneur.planeur = vol.planeur WHERE vol.date = ? ORDER BY duree DESC";
     private static final String LISTER_DATES = "SELECT DISTINCT date FROM vol";
     
     public VolDaoImpl(){

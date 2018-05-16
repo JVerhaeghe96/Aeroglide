@@ -104,7 +104,12 @@ public class VolVueListe extends JPanel {
                 donnees[i][4] = v.getCout();
             }
 
-            this.jtable.setModel(new DefaultTableModel(donnees, nomsColonnes));
+            this.jtable.setModel(new DefaultTableModel(donnees, nomsColonnes){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            });
         }
 
     }
