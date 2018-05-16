@@ -25,7 +25,6 @@ public class VolVueController extends JPanel{
 	private GestionnaireUseCases gestionnaire;
 	private JTextField jtfDuree;
 	private JTextField jtfDate;
-	private JTextField jtfCout;
 	private JComboBox<Pilote> jcbPilote;
 	private JComboBox<TypePlaneur> jcbPlaneur;
 	private JButton jbEnregistrerVol;
@@ -61,7 +60,6 @@ public class VolVueController extends JPanel{
 
 			this.jtfDuree = new JTextField(20);
 			this.jtfDate = new JTextField(20);
-			this.jtfCout = new JTextField(20);
 			this.jcbPilote = new JComboBox<Pilote>(pilotes);
 			this.jcbPlaneur = new JComboBox<TypePlaneur>(planeurs);
 			this.jbEnregistrerVol = new JButton("Enregistrer vol");
@@ -86,11 +84,6 @@ public class VolVueController extends JPanel{
 		jpDate.add(new JLabel("   date   "),BorderLayout.WEST);
 		jpDate.add(this.jtfDate);
 		
-		// saisie cout
-		JPanel jpCout = new JPanel(new BorderLayout());
-		jpCout.add(new JLabel("   cout   "),BorderLayout.WEST);
-		jpCout.add(this.jtfCout);
-		
 		// liste pilote
 		JPanel jpPilote = new JPanel(new BorderLayout());
 		jpPilote.add(new JLabel("   Pilote   "),BorderLayout.WEST);
@@ -103,7 +96,6 @@ public class VolVueController extends JPanel{
 		
 		jpSaisies.add(jpDuree);
 		jpSaisies.add(jpDate);
-		jpSaisies.add(jpCout);
 		jpSaisies.add(jpPilote);
 		jpSaisies.add(jpPlaneur);
 		jpSaisies.add(jbEnregistrerVol);
@@ -121,9 +113,10 @@ public class VolVueController extends JPanel{
 			java.util.Date dateUtil=sdf.parse(jtfDate.getText().trim());
 			int duree = Integer.parseInt(jtfDuree.getText().trim());
 			Date date = new Date(dateUtil.getTime());
-			double cout=Double.parseDouble(jtfCout.getText().trim());
 			Pilote pilote=listePilotes.get(jcbPilote.getSelectedIndex());
 			TypePlaneur planeur=listePlaneurs.get(jcbPlaneur.getSelectedIndex());
+
+			double cout = planeur.getCoutRemorquage() + (planeur.getTarifHoraire()/60 * duree);
 			
 			Vol vol=new Vol(duree, date, cout, pilote, planeur);
 			this.bundle.put(Bundle.VOL, vol);
@@ -146,7 +139,6 @@ public class VolVueController extends JPanel{
 	private void viderFormulaire(){
 		this.jtfDuree.setText("");
 		this.jtfDate.setText("");
-		this.jtfCout.setText("");
 	}
 	
 
